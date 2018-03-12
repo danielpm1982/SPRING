@@ -1,1 +1,1 @@
-Must add spring framework jars at the lib directory and add them to the classpath, for the code to work. No Spring or any other library included.
+Must add Spring framework jars at the lib directory and add them to the classpath of the project, for the code to work. No Spring or any other library included.
