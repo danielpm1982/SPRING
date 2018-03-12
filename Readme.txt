@@ -1,0 +1,1 @@
+Must add spring framework jars at the lib directory and add them to the classpath, for the code to work. No spring or any other library included.
