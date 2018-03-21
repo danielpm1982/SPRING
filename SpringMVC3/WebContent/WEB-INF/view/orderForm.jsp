@@ -80,7 +80,7 @@
 							<legend>FrenchFries</legend>
 							<form:radiobutton path="frenchFries" value="NO!" label="No!" title="Choose your french fries !" id="frenchFries" />
 							<form:radiobutton path="frenchFries" value="YES" label="Yes!" title="Choose your french fries !" id="frenchFries" />
-						</fieldset>>
+						</fieldset>
 						<form:errors path="frenchFries" cssClass="errors" />
 					</div>
 				</div>
