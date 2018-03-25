@@ -25,6 +25,48 @@ public class SandwichPrice {
 			return new BigDecimal("0");
 		}
 	}
+	public static BigDecimal getPrice(String sandwichName, String size, String discountCode) {
+		if(validadeDiscountCode(discountCode)) {
+			BigDecimal discountCodeFactor;
+			switch(DiscountType.valueOf(discountCode).toString().substring(1)) { //considers only the chars for the number, not the initial letter
+				case "10":
+					discountCodeFactor=new BigDecimal(0.9);
+					break;
+				case "20":
+					discountCodeFactor=new BigDecimal(0.8);
+					break;
+				case "30":
+					discountCodeFactor=new BigDecimal(0.7);
+					break;
+				case "40":
+					discountCodeFactor=new BigDecimal(0.6);
+					break;
+				case "50":
+					discountCodeFactor=new BigDecimal(0.5);
+					break;
+				case "60":
+					discountCodeFactor=new BigDecimal(0.4);
+					break;
+				case "70":
+					discountCodeFactor=new BigDecimal(0.3);
+					break;
+				case "80":
+					discountCodeFactor=new BigDecimal(0.2);
+					break;
+				case "90":
+					discountCodeFactor=new BigDecimal(0.1);
+					break;
+				case "100":
+					discountCodeFactor=new BigDecimal(0);
+					break;
+				default:
+					discountCodeFactor=new BigDecimal(1);
+			}
+			return getPrice(sandwichName, size).multiply(discountCodeFactor).setScale(2, RoundingMode.CEILING);
+		}else {
+			return getPrice(sandwichName, size);
+		}
+	}
 	private static BigDecimal getPrice(String size, double[] sizePriceArray) {
 		switch(SizeType.valueOf(size)) {
 			case SMALL:
@@ -43,5 +85,8 @@ public class SandwichPrice {
 		boolean b1 = Arrays.asList(SandwichType.values()).stream().map(x->x.toString()).collect(Collectors.toList()).contains(name);
 		boolean b2 = Arrays.asList(SizeType.values()).stream().map(x->x.toString()).collect(Collectors.toList()).contains(size);
 		return b1&&b2;
+	}
+	public static boolean validadeDiscountCode(String discount) {
+		return Arrays.asList(DiscountType.values()).stream().map(x->x.toString()).collect(Collectors.toList()).contains(discount);
 	}
 }

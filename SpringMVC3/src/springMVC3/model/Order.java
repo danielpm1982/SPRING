@@ -1,12 +1,22 @@
 package springMVC3.model;
 import java.math.BigDecimal;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+
+import springMVC3.validation.DiscountCodeValidator;
 
 public class Order {
 	@NotNull(message="You must type a client name!")
 	@Size(min=1, message="At least one letter must be entered!")
+	@Pattern(regexp="^[\\p{L} \\.\\-]+$", message="Invalid Name!")
 	private String clientName;
+	@NotNull(message="You must type a SSN!")
+	@Min(value=1, message="The min number is: '000000001'!")
+	@Max(value=999999999, message="The max number is: '999999999'!")
+	private Long SSN;
 	@NotNull(message="You must select one of the options!")
 	@Size(min=1, message="At least one option must be selected!")
 	private String sandwichName;
@@ -29,6 +39,9 @@ public class Order {
 	@Size(min=1, message="At least one option must be selected!")
 	private String[] payment;
 	private String paymentStringified;
+	@DiscountCodeValidator(value= {"A","B","C","D"}, message="This value must start with 'A' or 'B' or 'C' or 'D' + discount percent value (e.g. 'A20' = 20% discount). After the first char (the letter char), only two or three other chars are allowed for the number (from 10 to 100), which must end with '0' - counting by tens.")
+//	@DiscountCodeValidator
+	private String discountCode;
 	public Order() {
 	}
 	public String getClientName() {
@@ -46,6 +59,9 @@ public class Order {
 		if(comboSize!=null) { //must check whether comboSize has already been set, as the sequence of the form settings can't be controlled.
 			setTotalPrice(SandwichPrice.getPrice(sandwichName, comboSize)); //when the spring form has set the sandwichName and comboSize, the totalPrice of the combo sandwich is fetched and also set. The price depends only on the sandwich and comboSize types. The drink and sauceAddings are both included.
 		}
+		if(discountCode!=null&&discountCode!=""&&sandwichName!=null&&comboSize!=null) {
+			setTotalPrice(SandwichPrice.getPrice(sandwichName, comboSize, discountCode)); //if there a discountCode is inserted, then update the price value for that discount. 
+		}
 	}
 	public String getComboSize() {
 		return comboSize;
@@ -54,6 +70,9 @@ public class Order {
 		this.comboSize = comboSize;
 		if(sandwichName!=null) { //must check whether sandwichName has already been set, as the sequence of the form settings can't be controlled.
 			setTotalPrice(SandwichPrice.getPrice(sandwichName, comboSize)); //when the spring form has set the sandwichName and comboSize, the totalPrice of the combo sandwich is fetched and also set. The price depends only on the sandwich and comboSize types. The drink and sauceAddings are both included.
+		}
+		if(discountCode!=null&&discountCode!=""&&sandwichName!=null&&comboSize!=null) {
+			setTotalPrice(SandwichPrice.getPrice(sandwichName, comboSize, discountCode)); //if there a discountCode is inserted, then update the price value for that discount. 
 		}
 	}
 	public String getSandwichComposition() {
@@ -120,8 +139,23 @@ public class Order {
 	public void setPaymentStringified(String paymentStringified) {
 		this.paymentStringified = paymentStringified;
 	}
+	public Long getSSN() {
+		return SSN;
+	}
+	public void setSSN(Long SSN) {
+		this.SSN = SSN;
+	}
+	public String getDiscountCode() {
+		return discountCode;
+	}
+	public void setDiscountCode(String discountCode) {
+		this.discountCode = discountCode;
+		if(discountCode!=null&&discountCode!=""&&sandwichName!=null&&comboSize!=null) {
+			setTotalPrice(SandwichPrice.getPrice(sandwichName, comboSize, discountCode)); //if there a discountCode is inserted, then update the price value for that discount. 
+		}
+	}
 	@Override
 	public String toString() {
-		return "clientName: "+clientName+" sandwichName: "+sandwichName+" comboSize: "+comboSize+" sandwichComposition: "+sandwichComposition+" totalPrice: $"+totalPrice+" payment: $"+paymentStringified+" drink: "+drink+" sauceAddings: "+sauceAddingsStringified+" frenchFries: "+frenchFries;
+		return "clientName: "+clientName+" SSNCardNo: "+SSN+" sandwichName: "+sandwichName+" comboSize: "+comboSize+" sandwichComposition: "+sandwichComposition+" totalPrice: $"+totalPrice+" payment: $"+paymentStringified+" discountCode: "+discountCode+" drink: "+drink+" sauceAddings: "+sauceAddingsStringified+" frenchFries: "+frenchFries;
 	}
 }

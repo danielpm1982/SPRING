@@ -3,9 +3,12 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import springMVC3.model.Drink;
@@ -27,6 +30,7 @@ public class MealController {
 	@RequestMapping("/orderFormResult")
 	public String showOrderFormResultPage(@Valid @ModelAttribute("order") Order order, BindingResult bindingResult, HttpServletRequest request, Model model) {
 		if(bindingResult.hasErrors()) {
+			System.out.println(bindingResult);
 			setModelAttributes(model, order); //for sending to the form page again, all model attributes must be set again, and the order here will be the one not yet saved at the session, but that returned from the form previously
 			return "orderForm"; 
 		}
@@ -48,5 +52,10 @@ public class MealController {
 	@RequestMapping("/underConstruction")
 	public String showUnderConstructionFormPage() {
 		return "underConstruction";
+	}
+	@InitBinder
+	public void initBinder(WebDataBinder wdb) {
+		StringTrimmerEditor trimmer = new StringTrimmerEditor(true);
+		wdb.registerCustomEditor(String.class, trimmer);
 	}
 }

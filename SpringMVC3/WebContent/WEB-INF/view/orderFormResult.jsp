@@ -10,7 +10,7 @@
 		<div class="mediumText">This is the resultPage for the order formulary ! <img id="sandwichIcon" src="${pageContext.request.contextPath}/resources/img/sandwich.png" title="sandwichIcon" /></div>
 		<div><img id="sandwich" src="${pageContext.request.contextPath}/resources/img/sandwich.png" title="sandwich" /></div>
 		<div class="mediumText"><p>Your chosen sandwich is:</p></div>
-		<div class="mediumText"><p>Client Name: <span>${order.clientName}</span>. Sandwich Name: <span>${orderSession.sandwichName}</span>. Combo Size: <span>${orderSession.comboSize}</span>. Total Price: <span>$${orderSession.totalPrice}</span>. Payment: <span>${orderSession.paymentStringified}</span>. SauceAddings: <span>${orderSession.sauceAddingsStringified}</span>. FrenchFries: <span>${orderSession.frenchFries}</span>. Drink: <span>${orderSession.drink}</span>.</p></div>
+		<div class="mediumText"><p>Client Name: <span>${order.clientName}</span>. SSNCardNo: <span>${order.SSN}</span>. Sandwich Name: <span>${orderSession.sandwichName}</span>. Combo Size: <span>${orderSession.comboSize}</span>. Total Price: <span>$${orderSession.totalPrice}</span>. Payment: <span>${orderSession.paymentStringified}</span>. SauceAddings: <span>${orderSession.sauceAddingsStringified}</span>. FrenchFries: <span>${orderSession.frenchFries}</span>. Drink: <span>${orderSession.drink}</span>.</p></div>
 		<div class="mediumText"><p>Sandwich Composition:<br><span>${orderSession.sandwichComposition}</span>.</p></div>
 		<br>
 		<div>

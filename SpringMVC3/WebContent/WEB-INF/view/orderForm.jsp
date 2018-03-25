@@ -23,6 +23,16 @@
 				</div>
 				<div class="tableRow">
 					<div class="tableCellLeft">
+						<form:label path="SSN">SSN Card Number:</form:label>
+					</div>
+					<div class="tableCellRight">
+						<form:input path="SSN" title="Type your SSN!" id="SSN" placeholder="Type your SSN!" />
+						<br>
+						<form:errors path="SSN" cssClass="errors" />
+					</div>
+				</div>
+				<div class="tableRow">
+					<div class="tableCellLeft">
 						<form:label id="sandwichName" path="sandwichName">Sandwich Name:</form:label>
 					</div>
 					<div class="tableCellRight">
@@ -89,7 +99,7 @@
 						<form:label id="payment" path="payment">Payment:</form:label>
 					</div>
 					<div class="tableCellRight">
-						<form:select path="payment" id="payment" title="Choose your payment type:" multiple="true" >
+						<form:select path="payment" id="payment" title="Choose your payment type:" multiple="true" size="2">
 							<form:option path="payment" value="FREE" label="FREE" />
 							<form:options path="payment" items="${paymentNames}" />
 						</form:select>
@@ -97,9 +107,19 @@
 						<form:errors path="payment" cssClass="errors" />
 					</div>
 				</div>
+				<div class="tableRow">
+					<div class="tableCellLeft">
+						<form:label path="discountCode">Discount Code:</form:label>
+					</div>
+					<div class="tableCellRight">
+						<form:input path="discountCode" title="Type your discount code!" id="discountCode" placeholder="Type your discount code!" />
+						<br>
+						<form:errors path="discountCode" cssClass="errors" />
+					</div>
+				</div>
 			</div>
 			<input type="submit" value="SUBMIT">
 		</form:form>
-		<div id="lastChosen"><p>Last chosen:<br>client: ${order.clientName} sandwichName: ${order.sandwichName} comboSize: ${order.comboSize} totalPrice: $${order.totalPrice} payment: ${order.paymentStringified} sauceAddings: ${order.sauceAddingsStringified} frenchFries: ${order.frenchFries} drink: ${order.drink}.<br>Composition: ${order.sandwichComposition}.</p></div>
+		<div id="lastChosen"><p>Last chosen:<br>client: ${order.clientName} SSNCardNo: ${order.SSN} sandwichName: ${order.sandwichName} comboSize: ${order.comboSize} totalPrice: $${order.totalPrice} payment: ${order.paymentStringified} sauceAddings: ${order.sauceAddingsStringified} frenchFries: ${order.frenchFries} drink: ${order.drink}.<br>Composition: ${order.sandwichComposition}.</p></div>
 	</body>
 </html>
