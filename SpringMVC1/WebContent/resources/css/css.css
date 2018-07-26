@@ -1,0 +1,77 @@
+@charset "UTF-8";
+body{
+	margin-top: 4em;
+	background-color: black;
+	font-family: sans-serif;
+	text-align: center;
+	color: orange;
+}
+div{
+	line-height: 1.2;
+	width: 70%;
+	margin: auto;
+	margin-bottom: 1em;
+}
+div.bigText{
+	font-size: 3em;
+	font-family: sans-serif;
+	font-weight: bold;
+}
+div.mediumText{
+	font-size: 2.5em;
+	font-family: monospace;
+	font-weight: 600;
+	line-height: 2;
+}
+span{
+	color: green;
+}
+form{
+	border: green solid 0.3em;
+	width: 50%;
+	margin: auto;
+	padding: 1em;
+}
+input{
+	font-size: 2.5em;
+	font-family: monospace;
+	text-align: center;
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+	padding: 0.5em;
+	padding-top: 0.2em;
+	padding-bottom: 0.2em;
+}
+input.text{
+		
+}
+input.date{
+
+}
+input.submit{
+	font-size: 2em;
+	font-weight: bolder;
+}
+img#springIcon{
+	margin-top: 2em;
+	width: 20%;
+	margin-bottom: 4em;
+}
+img#springIcon2{
+	width: 8%;
+}
+img#bornIcon{
+	width: 15%;
+}
+a{
+	margin-top: 1em;
+	font-size: 50px;
+	color: green;
+	text-decoration: none;
+}
+a:visited	 {
+	color: teal;
+}
+a:hover {
+	color: lime;
+}

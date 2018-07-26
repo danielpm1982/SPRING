@@ -1,0 +1,195 @@
+@charset "UTF-8";
+body{
+	margin-top: 2em;
+	margin-bottom: 6em;
+	background-color: black;
+	font-family: sans-serif;
+	text-align: center;
+	color: orange;
+}
+header.bigText{
+	font-size: 4em;
+	font-family: sans-serif;
+	font-weight: bold;
+}
+header.mediumText{
+	font-size: 3em;
+	font-family: monospace;
+	font-weight: 600;
+	line-height: 1;
+	margin-top: -1em;
+}
+div{
+	line-height: 1.2;
+	width: 70%;
+	margin: auto;
+	margin-bottom: 1em;
+}
+div#meal{
+
+}
+div#formList{
+	text-align: center;
+	width: 75%;
+	margin-top: 7em;
+}
+div.mediumText{
+	font-size: 2.5em;
+	font-family: monospace;
+	font-weight: 600;
+	line-height: 2;
+}
+
+div.table{
+	display: table;
+	width: 100%;
+	margin-top: 3em;
+	margin-bottom: 2em;
+}
+div.tableRow{
+	display: table-row;
+}
+div.tableCellLeft{
+	display: table-cell;
+	text-align: right;
+	width: 18%;
+	color: white;
+	padding-left: 2%;
+	padding-right: 2%;
+}
+div.tableCellRight{
+	display: table-cell;
+	width: 60%;
+	text-align: left;
+	padding-left: 5%;
+	padding-right: 5%;
+	color: green;
+}
+fieldset{
+	font-size: 1.5em;
+	margin-top: 0.5em;
+}
+label#sandwichName{
+	position: relative;
+	top: -0.7em;
+}
+label#payment{
+	position: relative;
+	top: -3.5em;
+}
+label#frenchFries{
+	position: relative;
+	top: 1.5em;
+}
+div#lastChosen{
+	margin-top: 2em;
+	font-size: 2em;
+	font-family: monospace;
+	line-height: 2;
+	width: 50%;
+}
+span{
+	color: green;
+}
+form{
+	border: green solid 0.3em;
+	width: 55%;
+	margin: auto;
+	padding: 1em;
+	text-align: center;
+}
+input{
+	font-size: 2.5em;
+	font-family: monospace;
+	text-align: center;
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+	padding: 0.5em;
+	padding-top: 0.2em;
+	padding-bottom: 0.2em;
+}
+label{
+	font-size: 2em;
+	font-family: monospace;
+	text-align: right;
+}
+input[type=text]{
+	font-size: 2.5em;
+	font-family: monospace;
+	text-align: center;
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+	padding: 0.5em;
+	padding-top: 0.2em;
+	padding-bottom: 0.2em;
+	width: 95%;
+}
+input[type=submit]{
+	font-size: 3em;
+}
+select{
+	font-size: 2.5em;
+	font-family: monospace;
+	text-align: center;
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+	padding: 0.5em;
+	padding-top: 0.2em;
+	padding-bottom: 0.2em;
+	width: 101%;	
+}
+img#meal{
+	width: 80%;
+}
+img#sandwichIcon, img#pizzaIcon, img#brownieIcon{
+	width: 8%;
+	position: relative;
+	top: 0.5em;
+	right: 0.5em;
+}
+img#homeIcon{
+	width: 8%;
+	margin-bottom: -0.5em;
+}
+img#formIcon{
+	width: 3%;
+}
+img#formIcon2{
+	width: 7%;
+}
+img#sandwich{
+	width: 40%;
+}
+img#pizza{
+	width: 65%;
+}
+img#brownie{
+	width: 55%;
+}
+img#underConstruction{
+	margin-top: 3em;
+	width: 60%;
+	margin-bottom: 8em;
+}
+a{
+	margin-top: 1em;
+	color: green;
+	text-decoration: none;
+	font-size: 2.5em;
+	font-family: monospace;
+	font-weight: 600;
+	line-height: 2;
+}
+a:visited	 {
+	color: teal;
+}
+a:hover {
+	color: lime;
+}
+.errors{
+	color: red;
+	font-family: monospace;
+	font-style: italic;
+	font-size: 2em;
+	position: relative;
+}

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+    
+    <context:property-placeholder location="classpath:spring1/animal.properties" />
+    <bean id="address" class="spring1.Address">
+<!--     	<constructor-arg value="Central Park West at 79th Street" /> -->
+<!--     	<constructor-arg value="noNumber" /> -->
+<!--     	<constructor-arg value="New York" /> -->
+<!--     	<constructor-arg value="NY" /> -->
+<!--     	<constructor-arg value="USA" /> -->
+    	<constructor-arg value="${animal.street}" />
+    	<constructor-arg value="${animal.number}" />
+    	<constructor-arg value="${animal.city}" />
+    	<constructor-arg value="${animal.state}" />
+    	<constructor-arg value="${animal.country}" />
+    </bean>
+    <bean id="movementService" class="spring1.MovementService" />
+    <bean id="animal" class="spring1.Dog" scope="singleton" init-method="init" destroy-method="destroy">
+    	<constructor-arg name="movementService" ref="movementService" />
+    	<constructor-arg name="name" value="Luke" />
+    	<constructor-arg name="birthDate" value="1982-04-22" />
+    	<constructor-arg name="address" ref="address" />
+<!--     	<property name="movementService" ref="movementService" /> -->
+<!--     	<property name="name" value="Luke" /> -->
+<!--     	<property name="birthDate" value="2010-07-01" /> -->
+<!--     	<property name="address" ref="address" /> -->
+    </bean>
+<!--     <bean id="animal" class="spring1.Cat" scope="prototype"> -->
+<!--     	<constructor-arg name="movementService" ref="movementService" /> -->
+<!--     	<constructor-arg name="name" value="Mimi" /> -->
+<!--     	<constructor-arg name="birthDate" value="2007-01-05" /> -->
+<!--     	<constructor-arg name="address" ref="address" /> -->
+<!--     	<property name="movementService" ref="movementService" /> -->
+<!--     	<property name="name" value="Mimi" /> -->
+<!--     	<property name="birthDate" value="2007-01-05" /> -->
+<!--     	<property name="address" ref="address" /> -->
+<!--     </bean> -->
+<!--     <bean id="animal" class="spring1.Fish" scope="prototype"> -->
+<!--     	<constructor-arg name="movementService" ref="movementService" /> -->
+<!--     	<constructor-arg name="name" value="Nemo" /> -->
+<!--     	<constructor-arg name="birthDate" value="2008-12-10" /> -->
+<!--     	<constructor-arg name="address" ref="address" /> -->
+<!--     	<property name="movementService" ref="movementService" /> -->
+<!--     	<property name="name" value="Nemo" /> -->
+<!--     	<property name="birthDate" value="2008-12-10" /> -->
+<!--     	<property name="address" ref="address" /> -->
+<!--     </bean> -->
+</beans>
